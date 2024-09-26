@@ -32,6 +32,11 @@ Instalar:
     1. Rode o comando `npm install -D nodemon` para instalar o nodemon (para reiniciar o servidor automaticamente)
     1. Rode o comando `knex init` para criar o arquivo `knexfile.js` e configurar o banco de dados
     1. Feche o terminal
+1. Crie um arquivo `.gitignore` na raiz do seu projeto e adicione o seguinte conteúdo:
+    ```
+    node_modules
+    .DS_Store
+    ```
 1. Abra o arquivo `package.json` do seu backend
     1. Mude a propriedade `scripts` para que fique assim:
         ```json
@@ -52,4 +57,6 @@ Instalar:
     1. Rode o comando `git init` para inicializar o repositório local
     1. Rode o comando `git remote add origin <URL_DO_REPOSITORIO>` para adicionar o repositório remoto ao seu projeto
     1. Rode o comando `git branch -M main` para definir a branch main como a branch principal
+    1. Rode o comando `git add .` para adicionar os arquivos ao repositório
+    1. Rode o comando `git commit -m "Initial commit"` para criar o commit inicial
     1. Rode o comando `git push -u origin main` para enviar os arquivos para o repositório remoto
