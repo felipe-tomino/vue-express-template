@@ -60,3 +60,35 @@ Instalar:
     1. Rode o comando `git add .` para adicionar os arquivos ao repositório
     1. Rode o comando `git commit -m "Initial commit"` para criar o commit inicial
     1. Rode o comando `git push -u origin main` para enviar os arquivos para o repositório remoto
+
+## Começando a codar!
+
+### Frontend
+
+Comece deletando os arquivos que não serão utilizados:
+- Tudo que tem dentro da pasta `components`. Crie seus componentes nesta pasta quando necessário
+- Na pasta `assets`, mantenha apenas o arquivo `main.css`, mas apague todo o conteúdo dele. É aqui que você vai editar os estilos globais do seu projeto
+- Apague o conteúdo do arquivo `App.vue` e substitua pelo conteúdo abaixo:
+    ```vue
+    <script setup>
+    // import NomeDoComponente from './components/NomeDoComponente.vue'
+    </script>
+
+    <template>
+    <header>
+        <h1>Seu título da página aqui</h1>
+    </header>
+
+    <main>
+        <p>Seu conteúdo da página aqui</p>
+        <!-- <NomeDoComponente /> -->
+    </main>
+    </template>
+    ```
+- No arquivo `index.html`, adicione o conteúdo abaixo dentro da tag `<head>`:
+    ```html
+    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+    ```
+    Isso vai resetar os estilos do seu projeto para um estado inicial
+
+### Backend
