@@ -30,7 +30,7 @@ Instalar:
         a. Use as opções padrão, exceto para o campo `entry point`, escreva `index.mjs` neste campo
     1. Rode o comando `npm install express body-parser cors knex pg` para instalar as dependências do projeto
     1. Rode o comando `npm install -D nodemon` para instalar o nodemon (para reiniciar o servidor automaticamente)
-    1. Rode o comando `knex init` para criar o arquivo `knexfile.js` e configurar o banco de dados
+    1. Rode o comando `npx knex init` para criar o arquivo `knexfile.js` e configurar o banco de dados
     1. Feche o terminal
 1. Crie um arquivo `.gitignore` na raiz do seu projeto e adicione o seguinte conteúdo:
     ```
@@ -92,3 +92,45 @@ Comece deletando os arquivos que não serão utilizados:
     Isso vai resetar os estilos do seu projeto para um estado inicial
 
 ### Backend
+
+Abra o arquivo `knexfile.js` e configure o banco de dados para o seu projeto:
+```js
+module.exports = {
+    development: {
+        client: 'postgresql',
+        connection: {
+            database: 'meu_banco_de_dados',
+            user:     'seu_usuario',
+            password: 'sua_senha'
+        }
+    }
+}
+```
+
+Abra o arquivo `index.mjs` e configure o servidor para o seu projeto:
+```js
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import knex from 'knex';
+import knexfile from './knexfile.js';
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
+app.use(cors());
+
+const ENVIRONMENT = process.env.NODE_ENV || 'development';
+const bancoDeDados = knex(knexfile[ENVIRONMENT]);
+
+app.get('/', (req, res) => {
+  res.send('Bem-vindo ao backend do projeto!');
+});
+
+app.listen(PORT, () => {
+  console.log(`Pronto: O servidor está rodando na porta ${PORT}`);
+});
+```
+
+Pronto! Agora temos um servidor backend pronto para rodar e receber requisições!
